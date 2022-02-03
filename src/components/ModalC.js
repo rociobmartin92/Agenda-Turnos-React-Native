@@ -4,7 +4,7 @@ import {Button, Center, Modal} from 'native-base';
 import {TurnoContext} from '../context/TurnoContext';
 import Form from './Form';
 
-const ModalC = props => {
+const ModalC = () => {
   const [modal, setModal] = useState(false);
   const {resp, setResp} = useContext(TurnoContext);
   return (

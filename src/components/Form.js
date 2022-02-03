@@ -1,24 +1,32 @@
-import React, {useContext} from 'react';
-import {FormControl, Button} from 'native-base';
+import React, {useState, useContext} from 'react';
+import {FormControl, Button, CheckIcon, WarningOutlineIcon} from 'native-base';
 import {Text, StyleSheet, TextInput} from 'react-native';
 import {TurnoContext} from '../context/TurnoContext';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import {Select} from 'native-base';
 
 const Form = props => {
   const {setModal} = props;
   const {resp, setResp} = useContext(TurnoContext);
+  const [service, setService] = useState('');
 
   const Validation = Yup.object().shape({
     name: Yup.string().required('Completa todos los campos'),
     day: Yup.string().required('Completa todos los campos'),
     month: Yup.string().required('Completa todos los campos'),
     hour: Yup.string().required('Completa todos los campos'),
-    job: Yup.string().required('Completa todos los campos'),
   });
 
   const handleSubmit = value => {
-    setResp([value.name, value.day, value.month, value.hour, value.job]);
+    setResp([
+      value.name,
+      value.day,
+      value.month,
+      value.hour,
+      value.job,
+      service,
+    ]);
     setModal(false);
   };
 
@@ -86,19 +94,35 @@ const Form = props => {
               <Text style={estilo.err}>{errors.hour}</Text>
             ) : null}
           </FormControl>
-          <FormControl mt="1">
+          <FormControl mt="5" isRequired>
             <FormControl.Label>
               <Text style={estilo.input}>Trabajo:</Text>
             </FormControl.Label>
-            <TextInput
-              style={estilo.ti}
-              value={values.job}
-              onBlur={handleBlur('job')}
-              onChangeText={handleChange('job')}
-            />
-            {errors.job && touched.job ? (
-              <Text style={estilo.err}>{errors.job}</Text>
-            ) : null}
+            <Select
+              color="darkText"
+              selectedValue={service}
+              minWidth="200"
+              accessibilityLabel="Elije un servicio"
+              placeholder="Elije un servicio"
+              _selectedItem={{
+                bg: '#dea5a4',
+                endIcon: <CheckIcon size="5" />,
+              }}
+              mt={1}
+              onValueChange={itemValue => setService(itemValue)}>
+              <Select.Item label="Tradicional" value="tradicional" />
+              <Select.Item label="Semi Permanentes" value="semi" />
+              <Select.Item label="Esculpidas" value="esculpidas" />
+              <Select.Item label="Remoción" value="remover" />
+              <Select.Item label="Arreglo" value="arreglar" />
+            </Select>
+            <FormControl.ErrorMessage
+              color="rgb(117,16,117)"
+              leftIcon={
+                <WarningOutlineIcon size="xs" color="rgb(117,16,117)" />
+              }>
+              <Text style={estilo.err}>Selecciona un servicio</Text>
+            </FormControl.ErrorMessage>
           </FormControl>
           <Button.Group marginLeft={10} space={2} marginTop={10}>
             <Button

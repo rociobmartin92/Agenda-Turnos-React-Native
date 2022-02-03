@@ -1,8 +1,8 @@
 import React, {createContext, useState} from 'react';
 
-export const TurnoContext = createContext();
+export const TurnoContext = createContext({});
 
-const init = {name: '', day: '', month: '', hour: '', job: ''};
+const init = {name: '', day: '', month: '', hour: '', job: null};
 
 export const TurnoProvider = ({children}) => {
   const [resp, setResp] = useState(init);
