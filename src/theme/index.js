@@ -1,5 +1,4 @@
 import {extendTheme} from 'native-base';
-import {Input, Select, TextArea} from './componentsTheme';
 
 const theme = extendTheme({
   colors: {
@@ -129,12 +128,6 @@ const theme = extendTheme({
     90: 0.9,
     95: 0.95,
     100: 1,
-  },
-
-  components: {
-    Input,
-    TextArea,
-    Select,
   },
 });
 
