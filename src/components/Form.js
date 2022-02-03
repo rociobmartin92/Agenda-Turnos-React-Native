@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {FormControl, Button} from 'native-base';
 import {Text, StyleSheet, TextInput} from 'react-native';
+import {TurnoContext} from '../context/TurnoContext';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
 const Form = props => {
-  const {setModal, resp, setResp} = props;
+  const {setModal} = props;
+  const {resp, setResp} = useContext(TurnoContext);
 
   const Validation = Yup.object().shape({
     name: Yup.string().required('Completa todos los campos'),

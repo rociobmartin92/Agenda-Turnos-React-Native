@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import theme from './src/theme';
 import {NativeBaseProvider} from 'native-base';
 import ModalC from './src/components/ModalC';
 import Header from './src/components/Header';
-
-const init = {name: '', day: '', month: '', hour: '', job: ''};
+import {TurnoProvider} from './src/context/TurnoContext';
 
 const App = () => {
-  const [resp, setResp] = useState(init);
   return (
-    <NativeBaseProvider theme={theme}>
-      <Header />
-      <ModalC resp={resp} setResp={setResp} />
-    </NativeBaseProvider>
+    <TurnoProvider>
+      <NativeBaseProvider theme={theme}>
+        <Header />
+        <ModalC />
+      </NativeBaseProvider>
+    </TurnoProvider>
   );
 };
 
