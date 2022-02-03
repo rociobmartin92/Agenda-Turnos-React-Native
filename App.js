@@ -1,12 +1,16 @@
-import {NativeBaseProvider} from 'native-base';
 import React from 'react';
 import theme from './src/theme';
-import {Text} from 'react-native';
+import {NativeBaseProvider} from 'native-base';
+import ModalC from './src/components/ModalC';
+import Header from './src/components/Header';
 
-const App = () => (
-  <NativeBaseProvider theme={theme}>
-    <Text> Diego y Rocío </Text>
-  </NativeBaseProvider>
-);
+const App = () => {
+  return (
+    <NativeBaseProvider theme={theme}>
+      <Header />
+      <ModalC />
+    </NativeBaseProvider>
+  );
+};
 
 export default App;
