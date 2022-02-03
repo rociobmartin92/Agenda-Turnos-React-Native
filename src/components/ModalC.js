@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 import {Button, Center, Modal} from 'native-base';
 import Form from './Form';
 
-const ModalC = () => {
+const ModalC = props => {
+  const {resp, setResp} = props;
   const [modal, setModal] = useState(false);
   return (
     <Center>
@@ -22,7 +23,7 @@ const ModalC = () => {
             <Text style={estilo.mod}>Agendar Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <Form setModal={setModal} />
+            <Form setModal={setModal} resp={resp} setResp={setResp} />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>

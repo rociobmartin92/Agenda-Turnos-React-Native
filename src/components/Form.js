@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FormControl, Button} from 'native-base';
 import {Text, StyleSheet, TextInput} from 'react-native';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
 const Form = props => {
-  const {setModal} = props;
-  const [resp, setResp] = useState([]);
+  const {setModal, resp, setResp} = props;
 
   const Validation = Yup.object().shape({
     name: Yup.string().required('Completa todos los campos'),
@@ -24,7 +23,7 @@ const Form = props => {
   console.log(resp);
   return (
     <Formik
-      initialValues={{name: '', day: '', month: '', hour: null, job: ''}}
+      initialValues={{name: '', day: '', month: '', hour: '', job: ''}}
       validationSchema={() => Validation}
       onSubmit={handleSubmit}>
       {({handleChange, handleBlur, handleSubmit, values, errors, touched}) => (
