@@ -1,5 +1,4 @@
 import {extendTheme} from 'native-base';
-import {Button, Input, Select, TextArea} from './componentsTheme';
 
 const theme = extendTheme({
   colors: {
@@ -79,11 +78,22 @@ const theme = extendTheme({
       black: 900,
       extrablack: 950,
     },
+
+    fontConfig: {
+      Roboto: {
+        100: {
+          normal: 'Roboto-Light',
+          italic: 'Roboto-LightItalic',
+        },
+      },
+    },
+
     fonts: {
-      heading: undefined,
+      heading: undefined ,
       body: undefined,
       mono: undefined,
     },
+
     fontSizes: {
       xxs: 10,
       xs: 12,
@@ -118,12 +128,6 @@ const theme = extendTheme({
     90: 0.9,
     95: 0.95,
     100: 1,
-  },
-  components: {
-    Button,
-    Input,
-    TextArea,
-    Select,
   },
 });
 

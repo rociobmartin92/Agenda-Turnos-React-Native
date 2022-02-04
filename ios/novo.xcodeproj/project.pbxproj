@@ -12,6 +12,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		7C810E2D5A34479498D37EB8 /* Hendrickson-K7GOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5709C07D2D4219BD03A9A4 /* Hendrickson-K7GOD.otf */; };
+		F88BDEED68654115AE557606 /* Junitta-BW55G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85FEC783184C44CA9E3A3142 /* Junitta-BW55G.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = novo/main.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = novo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		AD5709C07D2D4219BD03A9A4 /* Hendrickson-K7GOD.otf */ = {isa = PBXFileReference; name = "Hendrickson-K7GOD.otf"; path = "../src/assets/fonts/Hendrickson-K7GOD.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		85FEC783184C44CA9E3A3142 /* Junitta-BW55G.otf */ = {isa = PBXFileReference; name = "Junitta-BW55G.otf"; path = "../src/assets/fonts/Junitta-BW55G.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 				00E356EF1AD99517003FC87E /* novoTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				07B7B855AC084A45B6CD65B7 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,6 +128,16 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		07B7B855AC084A45B6CD65B7 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				AD5709C07D2D4219BD03A9A4 /* Hendrickson-K7GOD.otf */,
+				85FEC783184C44CA9E3A3142 /* Junitta-BW55G.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -214,6 +229,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7C810E2D5A34479498D37EB8 /* Hendrickson-K7GOD.otf in Resources */,
+				F88BDEED68654115AE557606 /* Junitta-BW55G.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
