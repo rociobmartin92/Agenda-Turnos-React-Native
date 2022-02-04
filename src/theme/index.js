@@ -89,7 +89,7 @@ const theme = extendTheme({
     },
 
     fonts: {
-      heading: undefined,
+      heading: undefined ,
       body: undefined,
       mono: undefined,
     },
