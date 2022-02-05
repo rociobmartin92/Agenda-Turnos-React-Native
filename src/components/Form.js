@@ -9,6 +9,8 @@ import {Select} from 'native-base';
 const Form = props => {
   const {setModal} = props;
   const {
+    name,
+    setName,
     day,
     setDay,
     month,

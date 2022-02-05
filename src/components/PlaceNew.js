@@ -14,6 +14,8 @@ import {
 
 const PlaceNew = () => {
   const {
+    name,
+    setName,
     day,
     setDay,
     month,
@@ -33,6 +35,7 @@ const PlaceNew = () => {
         mb: '4',
         minW: '72',
       }}>
+      {name ? <Text> Poner aqui Card</Text> : <Text> No tenés turnos</Text>}
       <Box alignItems="center" mt={10}>
         <Box
           maxW="80"

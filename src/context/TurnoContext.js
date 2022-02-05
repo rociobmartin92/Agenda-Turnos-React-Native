@@ -3,6 +3,7 @@ import React, {createContext, useState} from 'react';
 export const TurnoContext = createContext({});
 
 export const TurnoProvider = ({children}) => {
+  const [name, setName] = useState("");
   const [day, setDay] = useState('');
   const [month, setMonth] = useState('');
   const [hour, setHour] = useState('');
@@ -12,6 +13,7 @@ export const TurnoProvider = ({children}) => {
   return (
     <TurnoContext.Provider
       value={{
+        name, setName,
         day,
         setDay,
         month,
