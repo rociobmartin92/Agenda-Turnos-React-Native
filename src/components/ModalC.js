@@ -6,7 +6,7 @@ import Form from './Form';
 
 const ModalC = () => {
   const [modal, setModal] = useState(false);
-  const {resp, setResp} = useContext(TurnoContext);
+
   return (
     <Center>
       <Button
@@ -24,7 +24,7 @@ const ModalC = () => {
             <Text style={estilo.mod}>Agendar Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <Form setModal={setModal} resp={resp} setResp={setResp} />
+            <Form setModal={setModal} />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>

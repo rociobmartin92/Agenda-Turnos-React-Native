@@ -8,20 +8,7 @@ import {Select} from 'native-base';
 
 const Form = props => {
   const {setModal} = props;
-  const {
-    name,
-    setName,
-    day,
-    setDay,
-    month,
-    setMonth,
-    hour,
-    setHour,
-    phone,
-    setPhone,
-    job,
-    setJob,
-  } = useContext(TurnoContext);
+  const {resp, setResp} = useContext(TurnoContext);
   const [service, setService] = useState('');
 
   const Validation = Yup.object().shape({
@@ -29,29 +16,24 @@ const Form = props => {
     day: Yup.string().required('Completa todos los campos'),
     month: Yup.string().required('Completa todos los campos'),
     hour: Yup.string().required('Completa todos los campos'),
-    phone: Yup.string().required('Completa todos los campos'),
   });
 
   const handleSubmit = value => {
-    setName(value.name);
-    setDay(value.day);
-    setMonth(value.month);
-    setHour(value.hour);
-    setPhone(value.phone);
-    setJob(service);
+    setResp([
+      value.name,
+      value.day,
+      value.month,
+      value.hour,
+      value.job,
+      service,
+    ]);
     setModal(false);
   };
 
+  console.log(resp);
   return (
     <Formik
-      initialValues={{
-        name: '',
-        day: '',
-        month: '',
-        hour: '',
-        phone: '',
-        job: '',
-      }}
+      initialValues={{name: '', day: '', month: '', hour: '', job: ''}}
       validationSchema={() => Validation}
       onSubmit={handleSubmit}>
       {({handleChange, handleBlur, handleSubmit, values, errors, touched}) => (
@@ -110,20 +92,6 @@ const Form = props => {
             />
             {errors.hour && touched.hour ? (
               <Text style={estilo.err}>{errors.hour}</Text>
-            ) : null}
-          </FormControl>
-          <FormControl mt="1">
-            <FormControl.Label>
-              <Text style={estilo.input}>Teléfono:</Text>
-            </FormControl.Label>
-            <TextInput
-              style={estilo.ti}
-              value={values.phone}
-              onBlur={handleBlur('phone')}
-              onChangeText={handleChange('phone')}
-            />
-            {errors.hour && touched.hour ? (
-              <Text style={estilo.err}>{errors.phone}</Text>
             ) : null}
           </FormControl>
           <FormControl mt="5" isRequired>

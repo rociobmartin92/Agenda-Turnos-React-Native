@@ -13,20 +13,7 @@ import {
 } from 'native-base';
 
 const PlaceNew = () => {
-  const {
-    name,
-    setName,
-    day,
-    setDay,
-    month,
-    setMonth,
-    hour,
-    setHour,
-    phone,
-    setPhone,
-    job,
-    setJob,
-  } = useContext(TurnoContext);
+  const {resp, setResp} = useContext(TurnoContext);
 
   return (
     <ScrollView
@@ -35,7 +22,7 @@ const PlaceNew = () => {
         mb: '4',
         minW: '72',
       }}>
-      {name ? <Text> Poner aqui Card</Text> : <Text> No tenés turnos</Text>}
+      {resp ? <Text> Poner aqui Card</Text> : <Text> No tenés turnos</Text>}
       <Box alignItems="center" mt={10}>
         <Box
           maxW="80"
