@@ -16,6 +16,7 @@ const Form = props => {
     day: Yup.string().required('Completa todos los campos'),
     month: Yup.string().required('Completa todos los campos'),
     hour: Yup.string().required('Completa todos los campos'),
+    phone: Yup.string().required('Completa todos los campos'),
   });
 
   const handleSubmit = value => {
@@ -24,16 +25,18 @@ const Form = props => {
       value.day,
       value.month,
       value.hour,
-      value.job,
+      value.phone,
       service,
     ]);
     setModal(false);
   };
 
+  const nuevoT = {name, day, month, hour, phone, job};
+
   console.log(resp);
   return (
     <Formik
-      initialValues={{name: '', day: '', month: '', hour: '', job: ''}}
+      initialValues={{}}
       validationSchema={() => Validation}
       onSubmit={handleSubmit}>
       {({handleChange, handleBlur, handleSubmit, values, errors, touched}) => (
@@ -92,6 +95,20 @@ const Form = props => {
             />
             {errors.hour && touched.hour ? (
               <Text style={estilo.err}>{errors.hour}</Text>
+            ) : null}
+          </FormControl>
+          <FormControl mt="1">
+            <FormControl.Label>
+              <Text style={estilo.input}>Teléfono:</Text>
+            </FormControl.Label>
+            <TextInput
+              style={estilo.ti}
+              value={values.phone}
+              onBlur={handleBlur('phone')}
+              onChangeText={handleChange('phone')}
+            />
+            {errors.hour && touched.hour ? (
+              <Text style={estilo.err}>{errors.phone}</Text>
             ) : null}
           </FormControl>
           <FormControl mt="5" isRequired>
