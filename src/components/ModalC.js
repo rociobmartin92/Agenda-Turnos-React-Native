@@ -1,12 +1,11 @@
 import {Text, StyleSheet} from 'react-native';
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {Button, Center, Modal} from 'native-base';
-import {TurnoContext} from '../context/TurnoContext';
 import Form from './Form';
 
-const ModalC = props => {
+const ModalC = () => {
   const [modal, setModal] = useState(false);
-  const {resp, setResp} = useContext(TurnoContext);
+
   return (
     <Center>
       <Button
@@ -18,13 +17,13 @@ const ModalC = props => {
         Nuevo Turno
       </Button>
       <Modal isOpen={modal} onClose={() => setModal(false)}>
-        <Modal.Content maxWidth="500px">
+        <Modal.Content maxWidth="700px">
           <Modal.CloseButton />
           <Modal.Header alignItems="center">
-            <Text style={estilo.mod}>Agendar Turno </Text>
+            <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <Form setModal={setModal} resp={resp} setResp={setResp} />
+            <Form setModal={setModal} />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>
@@ -34,6 +33,6 @@ const ModalC = props => {
 };
 
 const estilo = StyleSheet.create({
-  mod: {fontSize: 20, fontFamily: 'sans-serif'},
+  mod: {fontSize: 23, fontFamily: 'sans-serif'},
 });
 export default ModalC;
