@@ -7,12 +7,14 @@ export const TurnoProvider = ({children}) => {
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date());
   const [job, setJob] = useState('');
+  const [phone, setPhone] = useState('');
   const [turnos, setTurnos] = useState([]);
 
   return (
     <TurnoContext.Provider
       value={{
         name,
+        phone, setPhone,
         date,
         setDate,
         job,
