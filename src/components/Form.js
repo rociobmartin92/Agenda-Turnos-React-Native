@@ -26,21 +26,25 @@ const Form = ({setModal}) => {
     } else {
       setModal(false);
       const nuevoTurno = {
-        name,
-        date,
-        phone,
-        job,
+        id: Date.now(),
+        name: name,
+        date: date,
+        phone: phone,
+        job: job,
       };
 
-      console.log(nuevoTurno);
-
       setTurnos([...turnos, nuevoTurno]);
-      console.log(turnos);
-
-      setName('');
-      setJob('');
-      setPhone('');
     }
+    console.log(turnos);
+    console.log(turnos.length);
+    console.log(date);
+  };
+
+  const limpiar = () => {
+    setName('');
+    setJob('');
+    setDate(new Date());
+    setPhone('');
   };
 
   return (
@@ -58,6 +62,7 @@ const Form = ({setModal}) => {
         <View>
           <DatePicker
             mode="datetime"
+            is24Hour={true}
             date={date}
             locale="es"
             onDateChange={date => setDate(date)}
@@ -79,9 +84,19 @@ const Form = ({setModal}) => {
       </FormControl>
       <Button.Group space={2} marginTop={10} alignItems="center">
         <Button
+          borderWidth={1}
+          borderColor="rgb(0,0,0"
           colorScheme="rgb(0,0,0)"
           bg="white"
-          fontSize="lg"
+          onPress={() => {
+            limpiar();
+            setModal(false);
+          }}>
+          Limpiar
+        </Button>
+        <Button
+          colorScheme="white"
+          bg="rgb(255,0,0)"
           onPress={() => {
             setModal(false);
           }}>
