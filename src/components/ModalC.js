@@ -17,7 +17,7 @@ const ModalC = () => {
         Nuevo Turno
       </Button>
       <Modal isOpen={modal} onClose={() => setModal(false)}>
-        <Modal.Content maxWidth="700px">
+        <Modal.Content minWidth="350px">
           <Modal.CloseButton />
           <Modal.Header alignItems="center">
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
