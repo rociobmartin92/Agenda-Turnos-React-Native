@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, {createContext, useState} from 'react';
-
 export const TurnoContext = createContext();
-
 export const TurnoProvider = ({children}) => {
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date());
@@ -14,7 +12,8 @@ export const TurnoProvider = ({children}) => {
     <TurnoContext.Provider
       value={{
         name,
-        phone, setPhone,
+        phone,
+        setPhone,
         date,
         setDate,
         job,

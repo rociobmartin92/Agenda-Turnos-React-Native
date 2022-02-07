@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import PlaceNew from '../PlaceNew';
 import Home from './Home';
+import New from './New';
 
 const HomeStack = () => {
   const Stack = createNativeStackNavigator();
@@ -16,7 +16,7 @@ const HomeStack = () => {
         />
         <Stack.Screen
           name="turnos"
-          component={PlaceNew}
+          component={New}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
