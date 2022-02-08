@@ -35,16 +35,13 @@ const Form = ({setModal}) => {
 
       setTurnos([...turnos, nuevoTurno]);
     }
-    console.log(turnos);
-    console.log(turnos.length);
-    console.log(date);
-  };
-
-  const limpiar = () => {
     setName('');
     setJob('');
     setDate(new Date());
     setPhone('');
+    console.log(turnos);
+    console.log(turnos.length);
+    console.log(date);
   };
 
   return (
@@ -83,17 +80,6 @@ const Form = ({setModal}) => {
         <TextInput style={estilo.ti} value={job} onChangeText={setJob} />
       </FormControl>
       <Button.Group space={2} marginTop={10} alignItems="center">
-        <Button
-          borderWidth={1}
-          borderColor="rgb(0,0,0"
-          colorScheme="rgb(0,0,0)"
-          bg="white"
-          onPress={() => {
-            limpiar();
-            setModal(false);
-          }}>
-          Limpiar
-        </Button>
         <Button
           colorScheme="white"
           bg="rgb(255,0,0)"
