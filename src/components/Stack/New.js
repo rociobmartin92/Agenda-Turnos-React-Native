@@ -19,7 +19,9 @@ const New = () => {
       ) : (
         <FlatList
           data={turnos}
-          renderItem={() => <Card />}
+          renderItem={({item}) => {
+            return <Card item={item} />;
+          }}
           keyExtractor={item => item.id}
         />
       )}

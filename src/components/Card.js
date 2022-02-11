@@ -14,7 +14,26 @@ import {
 import {Text, StyleSheet} from 'react-native';
 
 const Card = () => {
-  const {name, date, phone, job} = useContext(TurnoContext);
+  const {turnos} = useContext(TurnoContext);
+
+  const {item} = prop;
+  const {name, phone, date, job, id} = item;
+
+  const eliminarTurno = id => {
+    Alert.alert(
+      '¿Deseas eliminar este paciente?',
+      'Un paciente eliminado no se puede recuperar',
+      [
+        {text: 'Cancelar'},
+        {
+          text: 'Si, Eliminar',
+          onPress: () => {
+            turnos.filter(item => item.id !== id);
+          },
+        },
+      ],
+    );
+  };
 
   const formater = date => {
     var dayOfWeek = ['Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab', 'Dom'],
