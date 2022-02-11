@@ -13,8 +13,29 @@ import {
 } from 'native-base';
 import {Text, StyleSheet} from 'react-native';
 
-const Card = () => {
-  const {name, date, phone, job} = useContext(TurnoContext);
+const Card = prop => {
+  const {turnos} = useContext(TurnoContext);
+
+  const {item} = prop;
+  const {name, phone, date, job, id} = item;
+
+  const eliminarTurno = id => {
+    console.log(`el id es y funciona ${id}`);
+
+    // Alert.alert(
+    //   '¿Deseas eliminar este paciente?',
+    //   'Un paciente eliminado no se puede recuperar',
+    //   [
+    //     {text: 'Cancelar'},
+    //     {
+    //       text: 'Si, Eliminar',
+    //       onPress: () => {
+    //         turnos.filter(item => item.id !== id);
+    //       },
+    //     },
+    //   ],
+    // );
+  };
 
   const formater = date => {
     var dayOfWeek = ['Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab', 'Dom'],
@@ -47,7 +68,12 @@ const Card = () => {
 
   return (
     <Box alignItems="center" marginTop={10}>
-      <Button margin={0} padding={1} bg="#dea5a4" _pressed={{bg: 'rgb(0,0,0)'}}>
+      <Button
+        margin={0}
+        padding={1}
+        bg="#dea5a4"
+        _pressed={{bg: 'rgb(0,0,0)'}}
+        onLongPress={eliminarTurno(id)}>
         <Box
           maxW="80"
           rounded="lg"
