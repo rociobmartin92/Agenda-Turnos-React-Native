@@ -15,6 +15,7 @@ import {Text, StyleSheet} from 'react-native';
 
 const Card = () => {
   const {turnos} = useContext(TurnoContext);
+<<<<<<< Updated upstream
 
   const {item} = prop;
   const {name, phone, date, job, id} = item;
@@ -34,6 +35,8 @@ const Card = () => {
       ],
     );
   };
+=======
+>>>>>>> Stashed changes
 
   const formater = date => {
     var dayOfWeek = ['Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab', 'Dom'],
