@@ -1,7 +1,9 @@
-import {Text, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
-import {Button, Center, Modal} from 'native-base';
+import {Button, Center, Modal, Box, Image} from 'native-base';
+import {Text, StyleSheet} from 'react-native';
 import Form from './Form';
+import calendar from '../assets/images/calendar.png';
+import {useNavigation} from '@react-navigation/native';
 
 const ModalC = () => {
   const [modal, setModal] = useState(false);
@@ -16,6 +18,19 @@ const ModalC = () => {
         onPress={() => setModal(true)}>
         Nuevo Turno
       </Button>
+      <Box>
+        <Button
+          onPress={item => useNavigation.navigate('turnos', item)}
+          borderColor="#dea5a4"
+          borderWidth={2}
+          bg="transparent"
+          position="absolute"
+          marginTop={20}
+          marginLeft={70}
+          _pressed={{bg: 'transparent'}}>
+          <Image source={calendar} alt="calendar" size={10} />
+        </Button>
+      </Box>
       <Modal isOpen={modal} onClose={() => setModal(false)}>
         <Modal.Content minWidth="350px">
           <Modal.CloseButton />

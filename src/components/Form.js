@@ -77,12 +77,12 @@ const Form = ({setModal}) => {
         <FormControl.Label>
           <Text style={estilo.input}>Trabajo:</Text>
         </FormControl.Label>
-        <TextInput style={estilo.ti} value={job} onChangeText={setJob} />
+        <TextInput style={estilo.tit} value={job} onChangeText={setJob} />
       </FormControl>
       <Button.Group space={2} marginTop={10} alignItems="center">
         <Button
-          colorScheme="white"
-          bg="rgb(255,0,0)"
+          colorScheme="rgb(0,0,0)"
+          bg="white"
           onPress={() => {
             setModal(false);
           }}>
@@ -102,7 +102,18 @@ const Form = ({setModal}) => {
 const estilo = StyleSheet.create({
   but: {fontSize: 18},
   input: {fontSize: 16, color: 'rgb(0,0,0)'},
-  ti: {borderColor: 'rgb(0,0,0)', borderWidth: 1, padding: 0.5},
+  tit: {
+    borderColor: 'rgb(0,0,0)',
+    borderWidth: 1,
+    paddingBottom: 3,
+    width: '95%',
+  },
+  ti: {
+    borderColor: 'rgb(0,0,0)',
+    borderWidth: 1,
+    padding: 0.5,
+    width: '80%',
+  },
   err: {color: 'rgb(117,16,117)', fontWeight: 'bold'},
 });
 
