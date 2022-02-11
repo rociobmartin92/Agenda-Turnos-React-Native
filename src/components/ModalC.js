@@ -7,7 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const ModalC = () => {
   const [modal, setModal] = useState(false);
-
+  const Nav = useNavigation();
   return (
     <Center>
       <Button
@@ -20,7 +20,7 @@ const ModalC = () => {
       </Button>
       <Box>
         <Button
-          onPress={item => useNavigation.navigate('turnos', item)}
+          onPress={() => Nav.navigate('turnos')}
           borderColor="#dea5a4"
           borderWidth={2}
           bg="transparent"
