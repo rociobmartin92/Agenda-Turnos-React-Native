@@ -1,8 +1,9 @@
 import React from 'react';
 import theme from './src/theme';
 import {NativeBaseProvider} from 'native-base';
-import HomeStack from './src/components/Stack/HomeStack';
 import {TurnoProvider} from './src/context/TurnoContext';
+import HomeStack from './src/components/stack/HomeStack';
+
 
 const App = () => {
   return (

@@ -19,13 +19,9 @@ const New = () => {
       ) : (
         <FlatList
           data={turnos}
-<<<<<<< Updated upstream
           renderItem={({item}) => {
             return <Card item={item} />;
           }}
-=======
-          renderItem={item => <Card item={item} />}
->>>>>>> Stashed changes
           keyExtractor={item => item.id}
         />
       )}
