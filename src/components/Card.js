@@ -11,30 +11,29 @@ import {
   AspectRatio,
   Button,
 } from 'native-base';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, Alert} from 'react-native';
 
 const Card = prop => {
-  const {turnos} = useContext(TurnoContext);
+  const {turnos, setTurnos} = useContext(TurnoContext);
 
   const {item} = prop;
   const {name, phone, date, job, id} = item;
 
   const eliminarTurno = id => {
-    console.log(`el id es y funciona ${id}`);
-
-    // Alert.alert(
-    //   '¿Deseas eliminar este paciente?',
-    //   'Un paciente eliminado no se puede recuperar',
-    //   [
-    //     {text: 'Cancelar'},
-    //     {
-    //       text: 'Si, Eliminar',
-    //       onPress: () => {
-    //         turnos.filter(item => item.id !== id);
-    //       },
-    //     },
-    //   ],
-    // );
+    Alert.alert(
+      '¿Deseas eliminar este paciente?',
+      'Un paciente eliminado no se puede recuperar',
+      [
+        {text: 'Cancelar'},
+        {
+          text: 'Si, Eliminar',
+          onPress: () => {
+            const actualizados = turnos.filter(item => item.id !== id);
+            setTurnos(actualizados);
+          },
+        },
+      ],
+    );
   };
 
   const formater = date => {
@@ -73,7 +72,7 @@ const Card = prop => {
         padding={1}
         bg="#dea5a4"
         _pressed={{bg: 'rgb(0,0,0)'}}
-        onLongPress={eliminarTurno(id)}>
+        onPress={() => eliminarTurno(id)}>
         <Box
           maxW="80"
           rounded="lg"
