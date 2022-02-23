@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-import React, {useContext} from 'react';
-import {TurnoContext} from '../context/TurnoContext';
+import React from 'react';
 import {
   Box,
   Center,
@@ -13,10 +11,8 @@ import {
 } from 'native-base';
 import {Text, StyleSheet, Alert} from 'react-native';
 
-const Card = prop => {
-  const {turnos, setTurnos} = useContext(TurnoContext);
-
-  const {item} = prop;
+// eslint-disable-next-line react/prop-types
+const Card = ({item = {}, onDelete, onModify}) => {
   const {name, phone, date, job, id} = item;
 
   const eliminarTurno = id => {
@@ -26,10 +22,15 @@ const Card = prop => {
       [
         {text: 'Cancelar'},
         {
+          text: 'Editar',
+          onPress: () => {
+            onModify(id);
+          },
+        },
+        {
           text: 'Si, Eliminar',
           onPress: () => {
-            const actualizados = turnos.filter(item => item.id !== id);
-            setTurnos(actualizados);
+            onDelete(id);
           },
         },
       ],

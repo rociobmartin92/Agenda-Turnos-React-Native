@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import {Button, Center, Modal, Box, Image} from 'native-base';
 import {Text, StyleSheet} from 'react-native';
 import Form from './Form';
 import calendar from '../assets/images/calendar.png';
 import {useNavigation} from '@react-navigation/native';
+import { TurnoContext } from '../context/TurnoContext';
 
 const ModalC = () => {
-  const [modal, setModal] = useState(false);
+const {modal, setModal} = useContext(TurnoContext)
   const Nav = useNavigation();
   return (
     <Center>
@@ -20,6 +21,7 @@ const ModalC = () => {
       </Button>
       <Box>
         <Button
+          testID="calendar"
           onPress={() => Nav.navigate('turnos')}
           borderColor="#dea5a4"
           borderWidth={2}
@@ -38,7 +40,7 @@ const ModalC = () => {
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <Form setModal={setModal} />
+            <Form />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>

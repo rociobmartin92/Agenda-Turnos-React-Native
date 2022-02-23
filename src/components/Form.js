@@ -1,48 +1,18 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
 import {FormControl, Button} from 'native-base';
-import {Text, StyleSheet, TextInput, View, Alert} from 'react-native';
+import {Text, StyleSheet, TextInput, View} from 'react-native';
 import {TurnoContext} from '../context/TurnoContext';
 
-const Form = ({setModal}) => {
-  const {
-    name,
-    setName,
-    job,
-    date,
-    setDate,
-    setJob,
-    phone,
-    setPhone,
-    turnos,
-    setTurnos,
-  } = useContext(TurnoContext);
+const Form = () => {
+  const [name, setName] = useState('');
+  const [date, setDate] = useState(new Date());
+  const [job, setJob] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const handleCita = () => {
-    if ([name, phone, job].includes('')) {
-      Alert.alert('Error', 'Todos los campos son obligatorios');
-    } else {
-      setModal(false);
-      const nuevoTurno = {
-        id: Date.now(),
-        name: name,
-        date: date,
-        phone: phone,
-        job: job,
-      };
-
-      setTurnos([...turnos, nuevoTurno]);
-    }
-    setName('');
-    setJob('');
-    setDate(new Date());
-    setPhone('');
-    console.log(turnos);
-    console.log(turnos.length);
-    console.log(date);
-  };
+  const {submitTurno, setModal} = useContext(TurnoContext);
 
   return (
     <>
@@ -91,7 +61,19 @@ const Form = ({setModal}) => {
         <Button
           colorScheme="rgb(0,0,0)"
           bg="lightBlue.500"
-          onPress={handleCita}>
+          onPress={() => {
+            submitTurno(
+              name,
+              phone,
+              job,
+              date,
+              setDate,
+              setJob,
+              setPhone,
+              setName,
+              setModal,
+            );
+          }}>
           Guardar
         </Button>
       </Button.Group>
