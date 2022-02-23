@@ -7,10 +7,10 @@ import smile from '../../assets/images/smile.jpg';
 import Card from '../Card';
 
 const New = () => {
-  const {turnos} = useContext(TurnoContext);
+  const {turnos, deleteTurno, modifyTurno} = useContext(TurnoContext);
 
   return (
-    <Box alignItems="center" justifyContent="center">
+    <Box alignItems="center" justifyContent="center" testID="new">
       {turnos.length === 0 ? (
         <>
           <Text style={estilo.nt}>No tenes Turnos</Text>
@@ -20,7 +20,9 @@ const New = () => {
         <FlatList
           data={turnos}
           renderItem={({item}) => {
-            return <Card item={item} />;
+            return (
+              <Card item={item} onDelete={deleteTurno} onModify={modifyTurno} />
+            );
           }}
           keyExtractor={item => item.id}
         />
