@@ -5,9 +5,11 @@ import {Box, Image} from 'native-base';
 import {TurnoContext} from '../../context/TurnoContext';
 import smile from '../../assets/images/smile.jpg';
 import Card from '../Card';
+import {ModalContext} from '../../context/ModalContext';
 
 const New = () => {
-  const {turnos, deleteTurno, modifyTurno} = useContext(TurnoContext);
+  const {turnos, deleteTurno} = useContext(TurnoContext);
+  const {modifyTurno} = useContext(ModalContext);
 
   return (
     <Box alignItems="center" justifyContent="center" testID="new">

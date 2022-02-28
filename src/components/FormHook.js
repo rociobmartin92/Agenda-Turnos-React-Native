@@ -18,7 +18,7 @@ const defaultTurno = {
 };
 
 const FormHook = prop => {
-  const {addTurno, turno = defaultTurno} = prop;
+  const {turno = defaultTurno, submitTurno} = prop;
 
   const {
     control,
@@ -88,6 +88,7 @@ const FormHook = prop => {
           }}
           render={({field: {onChange, value}}) => (
             <DatePicker
+              minimumDate={new Date()}
               mode="datetime"
               is24Hour={true}
               date={value}
@@ -122,10 +123,7 @@ const FormHook = prop => {
       />
       {errors.job && <Text>Completa todos los campos</Text>}
       <Box marginTop={10}>
-        <Button
-          title="Agendar"
-          onPress={handleSubmit(addTurno(data, setShow))}
-        />
+        <Button title="Agendar" onPress={handleSubmit(submitTurno)} />
       </Box>
     </Center>
   );
