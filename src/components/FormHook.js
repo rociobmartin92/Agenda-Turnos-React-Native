@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import {Text, TextInput, Button, StyleSheet} from 'react-native';
-import {Box, Center, FormControl} from 'native-base';
+import {Box, Center, FormControl, Select, CheckIcon} from 'native-base';
 import {useForm, Controller} from 'react-hook-form';
 import DatePicker from 'react-native-date-picker';
 
@@ -51,9 +51,7 @@ const FormHook = prop => {
         )}
         name="name"
       />
-
       {errors.name && <Text>Completa todos los campos</Text>}
-
       <Controller
         control={control}
         rules={{
@@ -75,11 +73,9 @@ const FormHook = prop => {
         name="phone"
       />
       {errors.phone && <Text>Completa todos los campos</Text>}
-
       <FormControl.Label>
         <Text style={styles.input}>Fecha y Hora:</Text>
       </FormControl.Label>
-
       <Box>
         <Controller
           control={control}
@@ -97,28 +93,34 @@ const FormHook = prop => {
           name="date"
         />
       </Box>
-
       <Controller
         control={control}
-        rules={{
-          required: true,
-        }}
-        render={({field: {onChange, onBlur, value}}) => (
+        render={({field: {onChange, value}}) => (
           <>
             <FormControl.Label>
               <Text style={styles.input}>Trabajo:</Text>
             </FormControl.Label>
-            <TextInput
-              style={styles.inputs}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
+            <Box w="3/4" maxW="300">
+              <Select
+                selectedValue={value}
+                placeholder="Elige el Servicio"
+                _selectedItem={{
+                  bg: '#dea5a4',
+                  endIcon: <CheckIcon size="5" />,
+                }}
+                mt={1}
+                onValueChange={job => onChange(job)}>
+                <Select.Item label="Semi" value="sem" />
+                <Select.Item label="Esculpidas" value="esc" />
+                <Select.Item label="Tradicional" value="tra" />
+                <Select.Item label="Remocion" value="rem" />
+              </Select>
+            </Box>
           </>
         )}
         name="job"
       />
-      {errors.job && <Text>Completa todos los campos</Text>}
+
       <Box marginTop={10}>
         <Button title="Agendar" onPress={handleSubmit(onSubmit)} />
       </Box>
