@@ -13,7 +13,7 @@ import {Text, StyleSheet, Alert} from 'react-native';
 
 // eslint-disable-next-line react/prop-types
 const Card = ({item = {}, onDelete, onModify}) => {
-  const {name, phone, date, job, id} = item;
+  const {name, phone, email, date, job, id} = item;
 
   const eliminarTurno = id => {
     Alert.alert(
@@ -81,7 +81,7 @@ const Card = ({item = {}, onDelete, onModify}) => {
           borderColor="coolGray.200"
           borderWidth="1">
           <Box>
-            <AspectRatio w="100%" ratio={16 / 10}>
+            <AspectRatio w="100%" ratio={16 / 11}>
               <Image
                 source={{
                   uri: 'https://media.istockphoto.com/photos/white-soft-wool-texture-background-cotton-wool-light-natural-sheep-picture-id942216898?k=6&m=942216898&s=170667a&w=0&h=Cw8WkUyiwviND6h6-avsYYw84FbahZlZV3SGuols-k8=',
@@ -106,6 +106,7 @@ const Card = ({item = {}, onDelete, onModify}) => {
                   </HStack>
                 </HStack>
               </Stack>
+              <Text style={estilo.email}>{email}</Text>
             </Center>
           </Box>
         </Box>
@@ -115,10 +116,22 @@ const Card = ({item = {}, onDelete, onModify}) => {
 };
 
 const estilo = StyleSheet.create({
-  name: {fontSize: 20, fontWeight: 'bold', color: 'rgb(0, 0, 0)'},
+  name: {
+    fontSize: 21,
+    fontWeight: 'bold',
+    color: 'rgb(0, 0, 0)',
+    marginTop: 5,
+  },
   job: {fontSize: 21, fontWeight: 'bold', color: '#dea5a4'},
   date: {fontSize: 15, fontWeight: 'bold', color: 'rgb(0, 0, 0)'},
   phone: {fontSize: 21, fontWeight: 'bold'},
+  email: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#005A9C',
+    marginBottom: 0,
+    paddingBottom: 0,
+  },
 });
 
 export default Card;

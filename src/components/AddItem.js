@@ -18,6 +18,8 @@ const AddItem = () => {
     setTurnos([...turnos, data]);
     console.log(turnos);
     setShow(false);
+
+    
   };
 
   return (

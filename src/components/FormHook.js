@@ -4,18 +4,21 @@ import {Text, TextInput, Button, StyleSheet} from 'react-native';
 import {Box, Center, FormControl, Select, CheckIcon} from 'native-base';
 import {useForm, Controller} from 'react-hook-form';
 import DatePicker from 'react-native-date-picker';
-
-// VALIDAR UN EMAIL (con o sin Yup)
-// Phone solo numeros
-// Fecha mayor de hoy
+import * as yup from 'yup';
+import {yupResolver} from '@hookform/resolvers/yup';
 
 const defaultTurno = {
   id: Date.now(),
   name: '',
   phone: '',
   job: '',
+  email: '',
   date: new Date(Date.now()),
 };
+const schemaValidation = yup.object().shape({
+  email: yup.string().email().required(),
+  phone: yup.string().required(),
+});
 
 const FormHook = prop => {
   const {turno = defaultTurno, onSubmit} = prop;
@@ -25,9 +28,15 @@ const FormHook = prop => {
     handleSubmit,
     formState: {errors},
   } = useForm({
+    resolver: yupResolver(schemaValidation),
     defaultValues: turno,
   });
-  // eslint-disable-next-line no-undef
+
+  // if (!value.email) {
+  //   errors.email = 'Required';
+  // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value.email)) {
+  //   errors.email = 'Invalid email address';
+  // }
 
   return (
     <Center>
@@ -42,6 +51,8 @@ const FormHook = prop => {
               <Text style={styles.input}>Nombre y Apellido:</Text>
             </FormControl.Label>
             <TextInput
+
+            
               style={styles.inputs}
               onBlur={onBlur}
               onChangeText={onChange}
@@ -52,6 +63,7 @@ const FormHook = prop => {
         name="name"
       />
       {errors.name && <Text>Completa todos los campos</Text>}
+
       <Controller
         control={control}
         rules={{
@@ -73,9 +85,29 @@ const FormHook = prop => {
         name="phone"
       />
       {errors.phone && <Text>Completa todos los campos</Text>}
-      <FormControl.Label>
-        <Text style={styles.input}>Fecha y Hora:</Text>
-      </FormControl.Label>
+
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({field: {onChange, onBlur, value}}) => (
+          <>
+            <FormControl.Label>
+              <Text style={styles.input}>Email:</Text>
+            </FormControl.Label>
+            <TextInput
+              style={styles.inputs}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          </>
+        )}
+        name="email"
+      />
+      {errors.email && <Text>Completa todos los campos</Text>}
+
       <Box>
         <Controller
           control={control}
@@ -110,10 +142,10 @@ const FormHook = prop => {
                 }}
                 mt={1}
                 onValueChange={job => onChange(job)}>
-                <Select.Item label="Semi" value="sem" />
-                <Select.Item label="Esculpidas" value="esc" />
-                <Select.Item label="Tradicional" value="tra" />
-                <Select.Item label="Remocion" value="rem" />
+                <Select.Item label="Semi" value="Semi" />
+                <Select.Item label="Esculpidas" value="Esculpidas" />
+                <Select.Item label="Tradicional" value="Tradicional" />
+                <Select.Item label="Remoción" value="Remocion" />
               </Select>
             </Box>
           </>
