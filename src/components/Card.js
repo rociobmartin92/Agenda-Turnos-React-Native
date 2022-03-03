@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   Box,
   Center,
@@ -8,15 +8,14 @@ import {
   Image,
   AspectRatio,
   Button,
-  Modal,
 } from 'native-base';
 import {Text, StyleSheet, Alert} from 'react-native';
-import FormHook from '../components/FormHook';
+
+import Modal_ from './Modal_';
 
 // eslint-disable-next-line react/prop-types
 const Card = ({item = {}, onDelete}) => {
   const {name, phone, email, date, job, id} = item;
-  const [show, setShow] = useState(false);
 
   const eliminarTurno = id => {
     Alert.alert(
@@ -24,29 +23,7 @@ const Card = ({item = {}, onDelete}) => {
       'Un paciente eliminado no se puede recuperar',
       [
         {text: 'Cancelar'},
-        {
-          text: 'Editar',
-          onPress: () => {
-            // eslint-disable-next-line no-undef
-            console.log('Rocio te amo, te doy todo mi amor');
-            return (
-              <>
-                <Modal isOpen={true} onClose={() => setShow(false)}>
-                  <Modal.Content minWidth="350px">
-                    <Modal.CloseButton />
-                    <Modal.Header alignItems="center">
-                      <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <FormHook />
-                    </Modal.Body>
-                    <Modal.Footer></Modal.Footer>
-                  </Modal.Content>
-                </Modal>
-              </>
-            );
-          },
-        },
+
         {
           text: 'Si, Eliminar',
           onPress: () => {
@@ -131,6 +108,7 @@ const Card = ({item = {}, onDelete}) => {
           </Box>
         </Box>
       </Button>
+      <Modal_ />
     </Box>
   );
 };
