@@ -32,12 +32,6 @@ const FormHook = prop => {
     defaultValues: turno,
   });
 
-  // if (!value.email) {
-  //   errors.email = 'Required';
-  // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value.email)) {
-  //   errors.email = 'Invalid email address';
-  // }
-
   return (
     <Center>
       <Controller
@@ -51,8 +45,6 @@ const FormHook = prop => {
               <Text style={styles.input}>Nombre y Apellido:</Text>
             </FormControl.Label>
             <TextInput
-
-            
               style={styles.inputs}
               onBlur={onBlur}
               onChangeText={onChange}
@@ -106,7 +98,7 @@ const FormHook = prop => {
         )}
         name="email"
       />
-      {errors.email && <Text>Completa todos los campos</Text>}
+      {errors.email && <Text>Email inválido</Text>}
 
       <Box>
         <Controller
