@@ -1,14 +1,23 @@
-import React, {useContext} from 'react';
+/* eslint-disable no-undef */
+import React, {useContext, useState} from 'react';
 import {Button, Center, Modal, Box, Image} from 'native-base';
 import {Text, StyleSheet} from 'react-native';
 import FormHook from './FormHook';
 import calendar from '../assets/images/calendar.png';
 import {useNavigation} from '@react-navigation/native';
-import {ModalContext} from '../context/ModalContext';
+import {TurnoContext} from '../context/TurnoContext';
 
 const AddItem = () => {
-  const {submitTurno, show, setShow} = useContext(ModalContext);
+  const {turnos, setTurnos} = useContext(TurnoContext);
+  const [show, setShow] = useState(false);
   const Nav = useNavigation();
+
+  const submitTurno = data => {
+    console.log(data);
+    setTurnos([...turnos, data]);
+    console.log(turnos);
+    setShow(false);
+  };
 
   return (
     <Center>

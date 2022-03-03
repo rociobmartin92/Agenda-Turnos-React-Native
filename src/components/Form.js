@@ -1,5 +1,6 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/prop-types */
+
+// ALERT: This component is in disuse, please skip over, move on
+
 import React, {useContext, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
 import {FormControl, Button} from 'native-base';
