@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Text, StyleSheet, FlatList} from 'react-native';
 import {Box, Image} from 'native-base';
 import {TurnoContext} from '../../context/TurnoContext';
@@ -8,6 +8,16 @@ import Card from '../Card';
 
 const New = () => {
   const {turnos, deleteTurno} = useContext(TurnoContext);
+  const [show, setShow] = useState(false);
+  const [turno, setTurno] = useState();
+
+  const onClose = () => {
+    setShow(false);
+  };
+
+  const onPressButtonEdit = () => {
+    setShow(true);
+  };
 
   return (
     <Box alignItems="center" justifyContent="center" testID="new">
@@ -20,7 +30,17 @@ const New = () => {
         <FlatList
           data={turnos}
           renderItem={({item}) => {
-            return <Card item={item} onDelete={deleteTurno} />;
+            return (
+              <Card
+                item={item}
+                onDelete={deleteTurno}
+                onPressButtonEdit={onPressButtonEdit}
+                show={show}
+                onClose={onClose}
+                turno={turno}
+                setTurno={setTurno}
+              />
+            );
           }}
           keyExtractor={item => item.id}
         />

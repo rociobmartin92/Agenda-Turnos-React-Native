@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
 import React, {useState} from 'react';
 import {StyleSheet, Text} from 'react-native';
-import {Box, Modal, Button, Image} from 'native-base';
+import {Box, Modal} from 'native-base';
 import FormHook from './FormHook';
-import edit from '../assets/images/edit.png';
 
 const Modal_ = () => {
   const [show, setShow] = useState(false);
@@ -16,14 +15,6 @@ const Modal_ = () => {
 
   return (
     <Box>
-      <Button
-        padding={0}
-        marginTop={2}
-        bg="transparent"
-        _pressed={{bg: 'transparent'}}
-        onPress={() => setShow(true)}>
-        <Image padding={0} margin={0} source={edit} alt="Editar" size="xs" />
-      </Button>
       <Modal isOpen={show} onClose={() => setShow(false)}>
         <Modal.Content minWidth="350px">
           <Modal.CloseButton />
