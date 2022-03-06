@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
   Box,
@@ -16,7 +17,14 @@ import FormHook from './FormHook';
 import deleteImage from '../assets/images/deleteImage.png';
 
 // eslint-disable-next-line react/prop-types
-const Card = ({item = {}, onDelete, onClose, show, onPressButtonEdit}) => {
+const Card = ({
+  item = {},
+  onDelete,
+  onClose,
+  show,
+  onPressButtonEdit,
+  turno,
+}) => {
   const {name, phone, email, date, job, id} = item;
 
   const formater = date => {
@@ -96,7 +104,7 @@ const Card = ({item = {}, onDelete, onClose, show, onPressButtonEdit}) => {
             marginTop={2}
             bg="transparent"
             _pressed={{bg: 'transparent'}}
-            onPress={onPressButtonEdit}>
+            onPress={() => onPressButtonEdit(id)}>
             <Image
               padding={0}
               margin={0}
@@ -129,7 +137,7 @@ const Card = ({item = {}, onDelete, onClose, show, onPressButtonEdit}) => {
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <FormHook />
+            <FormHook turno={turno}  />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>

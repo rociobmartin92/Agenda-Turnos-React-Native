@@ -15,8 +15,10 @@ const New = () => {
     setShow(false);
   };
 
-  const onPressButtonEdit = () => {
+  const onPressButtonEdit = id => {
     setShow(true);
+    const editedTurno = turnos.filter(item => item.id === id);
+    setTurno(editedTurno);
   };
 
   return (
@@ -38,7 +40,6 @@ const New = () => {
                 show={show}
                 onClose={onClose}
                 turno={turno}
-                setTurno={setTurno}
               />
             );
           }}

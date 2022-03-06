@@ -7,21 +7,23 @@ import DatePicker from 'react-native-date-picker';
 import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 
-const defaultTurno = {
-  id: Date.now(),
-  name: '',
-  phone: '',
-  job: '',
-  email: '',
-  date: new Date(Date.now()),
-};
 const schemaValidation = yup.object().shape({
   email: yup.string().email().required(),
   phone: yup.string().required(),
 });
 
 const FormHook = prop => {
-  const {turno = defaultTurno, onSubmit} = prop;
+  var TurnoValue = {
+    id: Date.now(),
+    name: '',
+    phone: '',
+    job: '',
+    email: '',
+    date: new Date(Date.now()),
+  };
+  const {turno, onSubmit} = prop;
+
+  turno && (TurnoValue = turno[0]);
 
   const {
     control,
@@ -29,7 +31,7 @@ const FormHook = prop => {
     formState: {errors},
   } = useForm({
     resolver: yupResolver(schemaValidation),
-    defaultValues: turno,
+    defaultValues: TurnoValue,
   });
 
   return (

@@ -13,9 +13,7 @@ const AddItem = () => {
   const Nav = useNavigation();
 
   const submitTurno = data => {
-    console.log(data);
     setTurnos([...turnos, data]);
-    console.log(turnos);
     setShow(false);
   };
 
