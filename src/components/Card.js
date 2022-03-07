@@ -137,7 +137,7 @@ const Card = ({
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <FormHook turno={turno}  />
+            <FormHook turno={turno} />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>
