@@ -25,7 +25,7 @@ const Card = ({
   onPressButtonEdit,
   turno,
 }) => {
-  const {name, phone, email, date, job, id} = item;
+  const {name, phone, email, date, job} = item;
 
   const formater = date => {
     var dayOfWeek = ['Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab', 'Dom'],
@@ -104,7 +104,7 @@ const Card = ({
             marginTop={2}
             bg="transparent"
             _pressed={{bg: 'transparent'}}
-            onPress={() => onPressButtonEdit(id)}>
+            onPress={() => onPressButtonEdit(phone)}>
             <Image
               padding={0}
               margin={0}
@@ -119,7 +119,7 @@ const Card = ({
             marginTop={2}
             bg="transparent"
             _pressed={{bg: 'transparent'}}
-            onPress={() => onDelete(id)}>
+            onPress={() => onDelete(phone)}>
             <Image
               padding={0}
               margin={0}

@@ -7,9 +7,8 @@ import smile from '../../assets/images/smile.jpg';
 import Card from '../Card';
 
 const New = () => {
-  const {turnos, deleteTurno} = useContext(TurnoContext);
+  const {turnos, deleteTurno, turno, setTurno} = useContext(TurnoContext);
   const [show, setShow] = useState(false);
- 
 
   const onClose = () => {
     setShow(false);
@@ -17,7 +16,7 @@ const New = () => {
 
   const onPressButtonEdit = id => {
     setShow(true);
-    const editedTurno = turnos.filter(item => item.id === id);
+    const editedTurno = turnos.find(item => item.phone === id);
     setTurno(editedTurno);
 
     console.log(editedTurno);
@@ -45,7 +44,7 @@ const New = () => {
             />
           );
         }}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.phone}
       />
     </Box>
   );

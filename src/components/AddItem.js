@@ -8,7 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 import {TurnoContext} from '../context/TurnoContext';
 
 const AddItem = () => {
-  const {turnos, setTurnos, turno, setTurno} = useContext(TurnoContext);
+  const {turnos, setTurnos} = useContext(TurnoContext);
   const [show, setShow] = useState(false);
   const Nav = useNavigation();
 
@@ -17,15 +17,6 @@ const AddItem = () => {
     setShow(false);
   };
 
-  const editTurno = () => {
-    // turnos.map(item =>
-    //   item.id === idEdited
-    //     ? console.log('fuciono')
-    //     : console.log('no funciono, errro'),
-    console.log(turno[0].id);
-
-    setShow(false);
-  };
   return (
     <Center>
       <Button
@@ -57,7 +48,7 @@ const AddItem = () => {
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <FormHook onSubmit={submitTurno} onEdit={editTurno} />
+            <FormHook onSubmit={submitTurno} />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>

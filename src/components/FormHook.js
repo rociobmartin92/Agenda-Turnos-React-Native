@@ -14,16 +14,24 @@ const schemaValidation = yup.object().shape({
 
 const FormHook = prop => {
   var TurnoValue = {
-    id: Date.now(),
     name: '',
     phone: '',
     job: '',
     email: '',
     date: new Date(Date.now()),
   };
-  const {turno, onSubmit, onEdit} = prop;
+  const {turno, onSubmit} = prop;
 
-  turno && (TurnoValue = turno[0]);
+  const editTurno = data => {
+    // turnos.map(item =>
+    //   item.id === idEdited
+    //     ? console.log('fuciono')
+    //     : console.log('no funciono, errro'),
+    console.log('anda', data);
+    setShow(false);
+  };
+
+  turno && (TurnoValue = turno);
 
   const {
     control,
@@ -151,7 +159,7 @@ const FormHook = prop => {
         {turno === undefined ? (
           <Button title="Agendar" onPress={handleSubmit(onSubmit)} />
         ) : (
-          <Button title="Editar" onPress={handleSubmit(onEdit)} />
+          <Button title="Editar" onPress={handleSubmit(editTurno)} />
         )}
       </Box>
     </Center>
