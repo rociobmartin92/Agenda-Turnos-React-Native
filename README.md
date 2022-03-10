@@ -1,3 +1,4 @@
 # Agenda-Turnos-RN
-Appointment manager mobile App for a nails services store :nail_care: ... 
- This project is in Spanish language
+- Appointment manager mobile App for a nails services store 💅
+
+-  This project is in Spanish language
