@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
   Box,
@@ -8,31 +9,24 @@ import {
   Image,
   AspectRatio,
   Button,
+  Modal,
 } from 'native-base';
-import {Text, StyleSheet, Alert} from 'react-native';
-
-import Modal_ from './Modal_';
+import {Text, StyleSheet} from 'react-native';
+import edit from '../assets/images/edit.png';
+import FormHook from './FormHook';
+import deleteImage from '../assets/images/deleteImage.png';
 
 // eslint-disable-next-line react/prop-types
-const Card = ({item = {}, onDelete}) => {
-  const {name, phone, email, date, job, id} = item;
-
-  const eliminarTurno = id => {
-    Alert.alert(
-      '¿Deseas eliminar este paciente?',
-      'Un paciente eliminado no se puede recuperar',
-      [
-        {text: 'Cancelar'},
-
-        {
-          text: 'Si, Eliminar',
-          onPress: () => {
-            onDelete(id);
-          },
-        },
-      ],
-    );
-  };
+const Card = ({
+  item = {},
+  onDelete,
+  onClose,
+  show,
+  onPressEdit,
+  turno,
+  onEdit,
+}) => {
+  const {name, phone, email, date, job} = item;
 
   const formater = date => {
     var dayOfWeek = ['Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab', 'Dom'],
@@ -64,13 +58,8 @@ const Card = ({item = {}, onDelete}) => {
   };
 
   return (
-    <Box alignItems="center" marginTop={10}>
-      <Button
-        margin={0}
-        padding={1}
-        bg="#dea5a4"
-        _pressed={{bg: 'rgb(0,0,0)'}}
-        onPress={() => eliminarTurno(id)}>
+    <>
+      <Box alignItems="center" marginTop={10} bg="#dea5a4" padding={1}>
         <Box
           maxW="80"
           rounded="lg"
@@ -107,9 +96,54 @@ const Card = ({item = {}, onDelete}) => {
             </Center>
           </Box>
         </Box>
-      </Button>
-      <Modal_ />
-    </Box>
+      </Box>
+      <Box alignItems="center">
+        <HStack>
+          <Button
+            marginRight={3}
+            padding={0}
+            marginTop={2}
+            bg="transparent"
+            _pressed={{bg: 'transparent'}}
+            onPress={() => onPressEdit(phone)}>
+            <Image
+              padding={0}
+              margin={0}
+              source={edit}
+              alt="Editar"
+              size="2xs"
+            />
+          </Button>
+          <Button
+            marginLeft={3}
+            padding={0}
+            marginTop={2}
+            bg="transparent"
+            _pressed={{bg: 'transparent'}}
+            onPress={() => onDelete(phone)}>
+            <Image
+              padding={0}
+              margin={0}
+              source={deleteImage}
+              alt="Editar"
+              size="2xs"
+            />
+          </Button>
+        </HStack>
+      </Box>
+      <Modal isOpen={show} onClose={onClose}>
+        <Modal.Content minWidth="350px">
+          <Modal.CloseButton />
+          <Modal.Header alignItems="center">
+            <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
+          </Modal.Header>
+          <Modal.Body>
+            <FormHook turno={turno} onEditTurno={onEdit} closeModal={onClose} />
+          </Modal.Body>
+          <Modal.Footer></Modal.Footer>
+        </Modal.Content>
+      </Modal>
+    </>
   );
 };
 

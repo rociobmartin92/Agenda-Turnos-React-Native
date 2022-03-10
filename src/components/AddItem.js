@@ -13,9 +13,7 @@ const AddItem = () => {
   const Nav = useNavigation();
 
   const submitTurno = data => {
-    console.log(data);
     setTurnos([...turnos, data]);
-    console.log(turnos);
     setShow(false);
   };
 
@@ -50,7 +48,7 @@ const AddItem = () => {
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <FormHook onSubmit={submitTurno} />
+            <FormHook onSubmit={submitTurno}  />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>

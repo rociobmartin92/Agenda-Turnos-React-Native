@@ -5,7 +5,7 @@ export const TurnoProvider = ({children}) => {
   const [turnos, setTurnos] = useState([]);
 
   const deleteTurno = turnoId => {
-    const actualizados = turnos.filter(item => item.id !== turnoId);
+    const actualizados = turnos.filter(item => item.phone !== turnoId);
     setTurnos(actualizados);
   };
 
@@ -45,7 +45,6 @@ export const TurnoProvider = ({children}) => {
         turnos,
         setTurnos,
         deleteTurno,
-        // submitTurno,
       }}>
       {children}
     </TurnoContext.Provider>
