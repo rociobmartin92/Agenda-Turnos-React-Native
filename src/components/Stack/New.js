@@ -7,8 +7,9 @@ import smile from '../../assets/images/smile.jpg';
 import Card from '../Card';
 
 const New = () => {
-  const {turnos, deleteTurno, turno, setTurno} = useContext(TurnoContext);
+  const {turnos, deleteTurno, setTurnos} = useContext(TurnoContext);
   const [show, setShow] = useState(false);
+  const [turno, setTurno] = useState();
 
   const onClose = () => {
     setShow(false);
@@ -18,8 +19,16 @@ const New = () => {
     setShow(true);
     const editedTurno = turnos.find(item => item.phone === id);
     setTurno(editedTurno);
+  };
 
-    console.log(editedTurno);
+  const editTurnos = data => {
+    const updateTurnos = turnos.map(item =>
+      item.phone === turno.phone ? data : item,
+    );
+
+    console.log(updateTurnos);
+    setTurnos(updateTurnos);
+    setShow(false);
   };
 
   return (
@@ -37,10 +46,12 @@ const New = () => {
             <Card
               item={item}
               onDelete={deleteTurno}
-              onPressButtonEdit={onPressButtonEdit}
               show={show}
               onClose={onClose}
               turno={turno}
+              onPressEdit={onPressButtonEdit}
+              turnos={turnos}
+              onEdit={editTurnos}
             />
           );
         }}

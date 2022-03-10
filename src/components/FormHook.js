@@ -20,16 +20,7 @@ const FormHook = prop => {
     email: '',
     date: new Date(Date.now()),
   };
-  const {turno, onSubmit} = prop;
-
-  const editTurno = data => {
-    // turnos.map(item =>
-    //   item.id === idEdited
-    //     ? console.log('fuciono')
-    //     : console.log('no funciono, errro'),
-    console.log('anda', data);
-    setShow(false);
-  };
+  const {onSubmit, turno, onEditTurno} = prop;
 
   turno && (TurnoValue = turno);
 
@@ -159,7 +150,7 @@ const FormHook = prop => {
         {turno === undefined ? (
           <Button title="Agendar" onPress={handleSubmit(onSubmit)} />
         ) : (
-          <Button title="Editar" onPress={handleSubmit(editTurno)} />
+          <Button title="Editar" onPress={handleSubmit(onEditTurno)} />
         )}
       </Box>
     </Center>

@@ -3,7 +3,6 @@ import React, {createContext, useState} from 'react';
 export const TurnoContext = createContext();
 export const TurnoProvider = ({children}) => {
   const [turnos, setTurnos] = useState([]);
-  const [turno, setTurno] = useState();
 
   const deleteTurno = turnoId => {
     const actualizados = turnos.filter(item => item.phone !== turnoId);
@@ -46,8 +45,6 @@ export const TurnoProvider = ({children}) => {
         turnos,
         setTurnos,
         deleteTurno,
-        turno,
-        setTurno,
       }}>
       {children}
     </TurnoContext.Provider>

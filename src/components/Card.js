@@ -22,8 +22,9 @@ const Card = ({
   onDelete,
   onClose,
   show,
-  onPressButtonEdit,
+  onPressEdit,
   turno,
+  onEdit,
 }) => {
   const {name, phone, email, date, job} = item;
 
@@ -104,7 +105,7 @@ const Card = ({
             marginTop={2}
             bg="transparent"
             _pressed={{bg: 'transparent'}}
-            onPress={() => onPressButtonEdit(phone)}>
+            onPress={() => onPressEdit(phone)}>
             <Image
               padding={0}
               margin={0}
@@ -137,7 +138,7 @@ const Card = ({
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <FormHook turno={turno} />
+            <FormHook turno={turno} onEditTurno={onEdit} closeModal={onClose} />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>
