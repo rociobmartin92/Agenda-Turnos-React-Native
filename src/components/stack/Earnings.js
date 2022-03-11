@@ -1,10 +1,25 @@
-import React from 'react';
+/* eslint-disable no-undef */
+import React, {useContext} from 'react';
 import {Box, Button, Divider, Image} from 'native-base';
 import {Text, StyleSheet} from 'react-native';
 import ok from '../../assets/images/ok.png';
 import {useNavigation} from '@react-navigation/native';
+import {TurnoContext} from '../../context/TurnoContext';
 
 const Earnings = () => {
+  const {turnos} = useContext(TurnoContext);
+
+  let valores = turnos.map(el => el.job);
+  console.log(valores);
+
+  //   let transformacion = valores.map(el => {
+  //     el === 'Semi' && 900,
+  //       el === 'Remocion' && 250,
+  //       el === 'Tradicional' && 400,
+  //       el === 'Esculpidas' && 1300;
+  //   });
+  //   console.log(transformacion);
+
   const Nav = useNavigation();
   return (
     <Box
