@@ -4,6 +4,9 @@ import {StyleSheet, Text} from 'react-native';
 import {Box, Modal} from 'native-base';
 import FormHook from './FormHook';
 
+//ALERT:
+// THIS COMPONENT IS DEPRECIATED, useless
+
 const Modal_ = () => {
   const [show, setShow] = useState(false);
 

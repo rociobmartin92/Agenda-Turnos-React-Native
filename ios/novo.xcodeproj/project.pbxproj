@@ -15,6 +15,8 @@
 		7C810E2D5A34479498D37EB8 /* Hendrickson-K7GOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD5709C07D2D4219BD03A9A4 /* Hendrickson-K7GOD.otf */; };
 		F88BDEED68654115AE557606 /* Junitta-BW55G.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85FEC783184C44CA9E3A3142 /* Junitta-BW55G.otf */; };
 		A4471008D60B4EFDABE08BE1 /* Simpla Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79B20056560347B3AAB4B069 /* Simpla Demo.ttf */; };
+		0C00E646D04D4BAD9F391137 /* HandyQuomteRegular-6YLLo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D6D168A336E4E65BF63EC59 /* HandyQuomteRegular-6YLLo.ttf */; };
+		DD464A5C7F8744D39C68F399 /* Handy.otf in Resources */ = {isa = PBXBuildFile; fileRef = A066E63AE7FA4429A2E37E6B /* Handy.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		AD5709C07D2D4219BD03A9A4 /* Hendrickson-K7GOD.otf */ = {isa = PBXFileReference; name = "Hendrickson-K7GOD.otf"; path = "../src/assets/fonts/Hendrickson-K7GOD.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		85FEC783184C44CA9E3A3142 /* Junitta-BW55G.otf */ = {isa = PBXFileReference; name = "Junitta-BW55G.otf"; path = "../src/assets/fonts/Junitta-BW55G.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		79B20056560347B3AAB4B069 /* Simpla Demo.ttf */ = {isa = PBXFileReference; name = "Simpla Demo.ttf"; path = "../src/assets/fonts/Simpla Demo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9D6D168A336E4E65BF63EC59 /* HandyQuomteRegular-6YLLo.ttf */ = {isa = PBXFileReference; name = "HandyQuomteRegular-6YLLo.ttf"; path = "../src/assets/fonts/HandyQuomteRegular-6YLLo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A066E63AE7FA4429A2E37E6B /* Handy.otf */ = {isa = PBXFileReference; name = "Handy.otf"; path = "../src/assets/fonts/Handy.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				AD5709C07D2D4219BD03A9A4 /* Hendrickson-K7GOD.otf */,
 				85FEC783184C44CA9E3A3142 /* Junitta-BW55G.otf */,
 				79B20056560347B3AAB4B069 /* Simpla Demo.ttf */,
+				9D6D168A336E4E65BF63EC59 /* HandyQuomteRegular-6YLLo.ttf */,
+				A066E63AE7FA4429A2E37E6B /* Handy.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -235,6 +241,8 @@
 				7C810E2D5A34479498D37EB8 /* Hendrickson-K7GOD.otf in Resources */,
 				F88BDEED68654115AE557606 /* Junitta-BW55G.otf in Resources */,
 				A4471008D60B4EFDABE08BE1 /* Simpla Demo.ttf in Resources */,
+				0C00E646D04D4BAD9F391137 /* HandyQuomteRegular-6YLLo.ttf in Resources */,
+				DD464A5C7F8744D39C68F399 /* Handy.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

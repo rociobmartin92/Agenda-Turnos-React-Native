@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 import React, {useContext, useState} from 'react';
-import {Button, Center, Modal, Box, Image} from 'native-base';
+import {Button, Center, Modal, Image, HStack} from 'native-base';
 import {Text, StyleSheet} from 'react-native';
 import FormHook from './FormHook';
 import calendar from '../assets/images/calendar.png';
 import {useNavigation} from '@react-navigation/native';
 import {TurnoContext} from '../context/TurnoContext';
+import pesos from '../assets/images/pesos.jpg';
 
 const AddItem = () => {
   const {turnos, setTurnos} = useContext(TurnoContext);
@@ -27,20 +28,28 @@ const AddItem = () => {
         onPress={() => setShow(true)}>
         Nuevo Turno
       </Button>
-      <Box>
+      <HStack>
         <Button
-          testID="calendar"
           onPress={() => Nav.navigate('turnos')}
           borderColor="#dea5a4"
           borderWidth={2}
           bg="transparent"
-          position="absolute"
           marginTop={20}
-          marginLeft={70}
+          marginRight={10}
           _pressed={{bg: 'transparent'}}>
           <Image source={calendar} alt="calendar" size={10} />
         </Button>
-      </Box>
+        <Button
+          onPress={() => Nav.navigate('ganancias')}
+          borderColor="#dea5a4"
+          borderWidth={2}
+          bg="transparent"
+          marginTop={20}
+          marginLeft={10}
+          _pressed={{bg: 'transparent'}}>
+          <Image source={pesos} alt="pesos" size={10} />
+        </Button>
+      </HStack>
       <Modal isOpen={show} onClose={() => setShow(false)}>
         <Modal.Content minWidth="350px">
           <Modal.CloseButton />
@@ -48,7 +57,7 @@ const AddItem = () => {
             <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
-            <FormHook onSubmit={submitTurno}  />
+            <FormHook onSubmit={submitTurno} />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal.Content>
