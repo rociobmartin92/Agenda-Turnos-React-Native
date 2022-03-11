@@ -1,11 +1,11 @@
-
-// ALERT: This component is in disuse, please skip over, move on
-
 import React, {useContext, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
 import {FormControl, Button} from 'native-base';
 import {Text, StyleSheet, TextInput, View} from 'react-native';
 import {TurnoContext} from '../context/TurnoContext';
+
+// IMPORTANT:
+// This component is in disuse, please skip over, move on
 
 const Form = () => {
   const [name, setName] = useState('');
