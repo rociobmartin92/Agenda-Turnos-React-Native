@@ -4,6 +4,7 @@ import {Box, Image} from 'native-base';
 import {Text, StyleSheet} from 'react-native';
 import nails from '../../assets/images/nails.jpg';
 
+
 const Home = () => {
   return (
     <>

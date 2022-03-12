@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './Home';
 import New from './New';
 import Earnings from './Earnings';
+import Album from './Album';
 
 const HomeStack = () => {
   const Stack = createNativeStackNavigator();
@@ -21,6 +22,11 @@ const HomeStack = () => {
       <Stack.Screen
         name="ganancias"
         component={Earnings}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="fotos"
+        component={Album}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

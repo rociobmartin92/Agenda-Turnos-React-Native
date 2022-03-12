@@ -135,7 +135,7 @@ const FormHook = prop => {
                 }}
                 mt={1}
                 onValueChange={job => onChange(job)}>
-                <Select.Item label="Semi" value="Semi" />
+                <Select.Item label="Semi Permanentes" value="Semi" />
                 <Select.Item label="Esculpidas" value="Esculpidas" />
                 <Select.Item label="Tradicional" value="Tradicional" />
                 <Select.Item label="Remoción" value="Remocion" />

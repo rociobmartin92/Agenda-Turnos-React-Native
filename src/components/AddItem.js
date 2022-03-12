@@ -7,6 +7,7 @@ import calendar from '../assets/images/calendar.png';
 import {useNavigation} from '@react-navigation/native';
 import {TurnoContext} from '../context/TurnoContext';
 import pesos from '../assets/images/pesos.jpg';
+import album from '../assets/images/album.png';
 
 const AddItem = () => {
   const {turnos, setTurnos} = useContext(TurnoContext);
@@ -45,9 +46,18 @@ const AddItem = () => {
           borderWidth={2}
           bg="transparent"
           marginTop={20}
-          marginLeft={10}
           _pressed={{bg: 'transparent'}}>
           <Image source={pesos} alt="pesos" size={10} />
+        </Button>
+        <Button
+          onPress={() => Nav.navigate('fotos')}
+          borderColor="#dea5a4"
+          borderWidth={2}
+          bg="transparent"
+          marginTop={20}
+          marginLeft={10}
+          _pressed={{bg: 'transparent'}}>
+          <Image source={album} alt="fotos" size={10} />
         </Button>
       </HStack>
       <Modal isOpen={show} onClose={() => setShow(false)}>
