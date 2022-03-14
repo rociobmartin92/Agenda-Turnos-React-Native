@@ -1,19 +1,17 @@
 /* eslint-disable no-undef */
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
-import {FlatList, StyleSheet, Text} from 'react-native';
-import {Box, Image, Button} from 'native-base';
+import {FlatList} from 'react-native';
+import {Box, Image, Button, HStack, Center, Heading} from 'native-base';
 import plus from '../../assets/images/plus.jpg';
-
-const fotos = [
-  {nombre: 'Rocio', situacion: 'Totalmente enamorado'},
-  {nombre: 'Belen', situacion: 'No puedo sentir nada'},
-];
+import {TurnoContext} from '../../context/TurnoContext';
 
 const Album = () => {
-  // const [foto, setFoto] = useState([]);
+  const [imagenes, setImagenes] = useState([]);
+  const {turnos} = useContext(TurnoContext);
 
-  // eslint-disable-next-line react/prop-types
+  let fechas = turnos.map(el => el.date);
+  console.log(fechas);
 
   const openCamera = () => {
     ImagePicker.openPicker({
@@ -21,12 +19,40 @@ const Album = () => {
       height: 400,
       cropping: true,
     }).then(image => {
-      console.log(image.path);
+      setImagenes([...imagenes, image.path]);
+      console.log(imagenes);
     });
   };
 
   return (
     <Box>
+      <Box>
+        <FlatList
+          ListEmptyComponent={
+            <Heading marginTop={20} alignSelf="center">
+              No hay fotos para mostrar
+            </Heading>
+          }
+          data={imagenes}
+          renderItem={({item}) => {
+            return (
+              <Center>
+                <HStack space={3} justifyContent="center">
+                  <Image
+                    source={{uri: item}}
+                    alt="imagenes clientas"
+                    size="xl"
+                    margin={5}
+                    borderWidth={5}
+                    borderColor="black"
+                  />
+                </HStack>
+              </Center>
+            );
+          }}
+          keyExtractor={item => item}
+        />
+      </Box>
       <Button
         onPress={() => openCamera()}
         bg="transparent"
@@ -36,21 +62,6 @@ const Album = () => {
         _pressed={{bg: 'transparent'}}>
         <Image source={plus} alt="Agregar Foto" size={16} />
       </Button>
-      <Box>
-        <FlatList
-          ListEmptyComponent={<Text>No hay fotos para mostrar</Text>}
-          data={fotos}
-          renderItem={({item}) => {
-            return (
-              <Box>
-                <Text> {item.nombre} </Text>
-                <Text> {item.situacion} </Text>
-              </Box>
-            );
-          }}
-          keyExtractor={item => item.nombre}
-        />
-      </Box>
     </Box>
   );
 };
