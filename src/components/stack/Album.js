@@ -1,17 +1,12 @@
 /* eslint-disable no-undef */
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
-import {FlatList} from 'react-native';
-import {Box, Image, Button, HStack, Center, Heading} from 'native-base';
+import {FlatList, Text, StyleSheet} from 'react-native';
+import {Box, Image, Button, Center} from 'native-base';
 import plus from '../../assets/images/plus.jpg';
-import {TurnoContext} from '../../context/TurnoContext';
 
 const Album = () => {
   const [imagenes, setImagenes] = useState([]);
-  const {turnos} = useContext(TurnoContext);
-
-  let fechas = turnos.map(el => el.date);
-  console.log(fechas);
 
   const openCamera = () => {
     ImagePicker.openPicker({
@@ -24,29 +19,32 @@ const Album = () => {
     });
   };
 
+  const eliminarFoto = imagen => {
+    const nuevoArrayImagenes = imagenes.filter(id => id !== imagen);
+    setImagenes(nuevoArrayImagenes);
+  };
   return (
     <Box>
       <Box>
         <FlatList
-          ListEmptyComponent={
-            <Heading marginTop={20} alignSelf="center">
-              No hay fotos para mostrar
-            </Heading>
-          }
+          ListEmptyComponent={<Text style={estilo.texto}>No hay fotos</Text>}
           data={imagenes}
           renderItem={({item}) => {
             return (
               <Center>
-                <HStack space={3} justifyContent="center">
+                <Button
+                  bg="#a67b5b"
+                  padding={0}
+                  margin={4}
+                  onPress={() => eliminarFoto(item)}
+                  _pressed={{bg: '#EBE0C6'}}>
                   <Image
                     source={{uri: item}}
                     alt="imagenes clientas"
-                    size="xl"
-                    margin={5}
-                    borderWidth={5}
-                    borderColor="black"
+                    size={80}
+                    margin={3}
                   />
-                </HStack>
+                </Button>
               </Center>
             );
           }}
@@ -65,5 +63,14 @@ const Album = () => {
     </Box>
   );
 };
+
+const estilo = StyleSheet.create({
+  texto: {
+    fontFamily: 'Junitta-BW55G',
+    alignSelf: 'center',
+    fontSize: 50,
+    marginTop: 50,
+  },
+});
 
 export default Album;
