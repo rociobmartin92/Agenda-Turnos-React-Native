@@ -6,20 +6,26 @@ import ok from '../../assets/images/ok.png';
 import {useNavigation} from '@react-navigation/native';
 import {TurnoContext} from '../../context/TurnoContext';
 
+const EarningsMap = {
+  Semi: 900,
+  Remocion: 250,
+  Tradicional: 400,
+  Esculpidas: 1300,
+};
+
 const Earnings = () => {
   const {turnos} = useContext(TurnoContext);
 
+  // Hacer un solo map
   let valores = turnos.map(el => el.job);
   console.log(valores);
 
-  //   let transformacion = valores.map(el => {
-  //     el === 'Semi' && 900,
-  //       el === 'Remocion' && 250,
-  //       el === 'Tradicional' && 400,
-  //       el === 'Esculpidas' && 1300;
-  //   });
-  //   console.log(transformacion);
-
+  let transformacion = turnos.map(el => {
+    const value = EarningsMap[el] || 0;
+    console.log(value);
+    return value;
+  });
+  console.log(transformacion);
   const Nav = useNavigation();
   return (
     <Box
