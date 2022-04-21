@@ -5,8 +5,8 @@ export const TurnoProvider = ({children}) => {
   const [turnos, setTurnos] = useState([]);
 
   const deleteTurno = turnoId => {
-    const actualizados = turnos.filter(item => item.phone !== turnoId);
-    setTurnos(actualizados);
+    const updated = turnos.filter(item => item.phone !== turnoId);
+    setTurnos(updated);
   };
 
   // const submitTurno = (

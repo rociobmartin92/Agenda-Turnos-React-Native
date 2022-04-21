@@ -27,7 +27,7 @@ const Album = () => {
     <Box>
       <Box>
         <FlatList
-          ListEmptyComponent={<Text style={estilo.texto}>No hay fotos</Text>}
+          ListEmptyComponent={<Text style={styles.texto}>No hay fotos</Text>}
           data={imagenes}
           renderItem={({item}) => {
             return (
@@ -64,7 +64,7 @@ const Album = () => {
   );
 };
 
-const estilo = StyleSheet.create({
+const styles = StyleSheet.create({
   texto: {
     fontFamily: 'Junitta-BW55G',
     alignSelf: 'center',

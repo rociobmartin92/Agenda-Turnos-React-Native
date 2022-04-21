@@ -16,16 +16,15 @@ const EarningsMap = {
 const Earnings = () => {
   const {turnos} = useContext(TurnoContext);
 
-  // Hacer un solo map
   let valores = turnos.map(el => el.job);
   console.log(valores);
 
-  let transformacion = turnos.map(el => {
+  let transform = turnos.map(el => {
     const value = EarningsMap[el] || 0;
     console.log(value);
     return value;
   });
-  console.log(transformacion);
+  console.log(transform);
   const Nav = useNavigation();
   return (
     <Box
@@ -34,14 +33,14 @@ const Earnings = () => {
       borderColor="#1c2841"
       borderWidth={20}>
       <Box alignItems="center">
-        <Text style={estilo.tit}> ~ Mis Ganancias ~ </Text>
+        <Text style={styles.tit}> ~ Mis Ganancias ~ </Text>
       </Box>
       <Box marginLeft={10} marginRight={10}>
-        <Text style={estilo.sub}> Hoy: </Text>
+        <Text style={styles.sub}> Hoy: </Text>
         <Divider my="3" bg="#700000" />
-        <Text style={estilo.sub}> Semanal: </Text>
+        <Text style={styles.sub}> Semanal: </Text>
         <Divider my="3" bg="#700000" />
-        <Text style={estilo.sub}> Mensual: </Text>
+        <Text style={styles.sub}> Mensual: </Text>
       </Box>
       <Box alignItems="center" marginTop={5}>
         <Button
@@ -55,7 +54,7 @@ const Earnings = () => {
   );
 };
 
-const estilo = StyleSheet.create({
+const styles = StyleSheet.create({
   tit: {
     fontSize: 35,
     fontFamily: 'HandyQuomteRegular-6YLLo',

@@ -76,23 +76,23 @@ const Card = ({
               />
             </AspectRatio>
             <Center position="absolute" bg="white" bottom="0" px="5" py="7">
-              <Text style={estilo.name}>{name}</Text>
+              <Text style={styles.name}>{name}</Text>
               <Stack p="2" space={3}>
                 <Stack space={2}>
                   <Heading size="lg">
-                    <Text style={estilo.job}> {job}</Text>
+                    <Text style={styles.job}> {job}</Text>
                   </Heading>
                 </Stack>
-                <Text style={estilo.date}>{`${formater(
+                <Text style={styles.date}>{`${formater(
                   date,
                 )} - ${date.toLocaleTimeString()} `}</Text>
                 <HStack space={4}>
                   <HStack>
-                    <Text style={estilo.phone}>{phone}</Text>
+                    <Text style={styles.phone}>{phone}</Text>
                   </HStack>
                 </HStack>
               </Stack>
-              <Text style={estilo.email}>{email}</Text>
+              <Text style={styles.email}>{email}</Text>
             </Center>
           </Box>
         </Box>
@@ -135,7 +135,7 @@ const Card = ({
         <Modal.Content minWidth="350px">
           <Modal.CloseButton />
           <Modal.Header alignItems="center">
-            <Text style={estilo.mod}>Agendar Nuevo Turno </Text>
+            <Text style={styles.mod}>Agendar Nuevo Turno </Text>
           </Modal.Header>
           <Modal.Body>
             <FormHook turno={turno} onEditTurno={onEdit} closeModal={onClose} />
@@ -147,7 +147,7 @@ const Card = ({
   );
 };
 
-const estilo = StyleSheet.create({
+const styles = StyleSheet.create({
   name: {
     fontSize: 21,
     fontWeight: 'bold',
