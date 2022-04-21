@@ -36,7 +36,7 @@ const New = () => {
       <FlatList
         ListEmptyComponent={
           <>
-            <Text style={estilo.nt}>No tenes Turnos</Text>
+            <Text style={styles.nt}>No tenes Turnos</Text>
             <Image source={smile} alt="nails" size="2xl" marginTop={10} />
           </>
         }
@@ -61,7 +61,7 @@ const New = () => {
   );
 };
 
-const estilo = StyleSheet.create({
+const styles = StyleSheet.create({
   nt: {
     color: '#dea5a4',
     fontSize: 21,
