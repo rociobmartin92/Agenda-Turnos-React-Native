@@ -3,7 +3,7 @@ import React, {useContext, useState} from 'react';
 import {Text, StyleSheet, FlatList} from 'react-native';
 import {Box, Image} from 'native-base';
 import {TurnoContext} from '../context/TurnoContext';
-import smile from '../../assets/images/smile.jpg';
+import smile from '../assets/images/smile.jpg';
 import Card from './Card';
 
 const New = () => {
