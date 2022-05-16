@@ -7,16 +7,11 @@ import nails from '../../assets/images/nails.jpg';
 const Home = () => {
   return (
     <>
-      <Box
-        marginTop={5}
-        alignItems="center"
-        justifyContent="center"
-        bg="#dea5a4"
-        padding={5}>
+      <Box alignItems="center" justifyContent="center" bg="#dea5a4" padding={5}>
         <Text style={styles.tit}>Aumeier Uñas</Text>
       </Box>
       <Box alignItems="center">
-        <Image source={nails} alt="nails" size={80} marginTop={5} />
+        <Image source={nails} alt="nails" size={80} marginTop={10} />
       </Box>
       <AddItem />
     </>

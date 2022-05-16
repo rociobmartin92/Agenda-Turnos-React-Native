@@ -55,8 +55,8 @@ const Album = () => {
         onPress={() => openCamera()}
         bg="transparent"
         position="absolute"
-        marginTop={620}
-        marginLeft={250}
+        marginTop={550}
+        marginLeft={240}
         _pressed={{bg: 'transparent'}}>
         <Image source={plus} alt="Agregar Foto" size={16} />
       </Button>
