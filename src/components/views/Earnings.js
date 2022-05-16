@@ -15,14 +15,26 @@ const Earnings = () => {
   const {turnos} = useContext(TurnoContext);
 
   let valores = turnos.map(el => el.job);
-  console.log(valores);
+  // console.log(valores);
 
-  let transform = turnos.map(el => {
+  let transform = valores.map(el => {
     const value = EarningsMap[el] || 0;
-    console.log(value);
+    // console.log(value);
     return value;
   });
-  console.log(transform);
+  // console.log(transform);
+
+  let finalEarningsValueToday = transform.reduce(
+    // (previousValue, currentValue) => previousValue + currentValue,
+    // initialValue,
+    (valor, acumulador) => valor + acumulador,
+    0,
+  );
+
+  console.log(finalEarningsValueToday);
+
+  const todayDate = new Date().getDay();
+  console.log(todayDate);
 
   return (
     <Box
@@ -31,29 +43,39 @@ const Earnings = () => {
       borderColor="#1c2841"
       borderWidth={20}>
       <Box marginLeft={10} marginRight={10}>
-        <Text style={styles.sub}> Hoy: </Text>
+        <Text style={styles.sub}>
+          Hoy: {''}{' '}
+          <Text style={styles.rocio}> $ {finalEarningsValueToday}</Text>
+        </Text>
         <Divider my="5" bg="#700000" />
-        <Text style={styles.sub}> Semanal: </Text>
+        <Text style={styles.sub}>
+          Semanal: {''}{' '}
+          <Text style={styles.rocio}> $ {finalEarningsValueToday}</Text>
+        </Text>
         <Divider my="5" bg="#700000" />
-        <Text style={styles.sub}> Mensual: </Text>
+        <Text style={styles.sub}>
+          Mensual:{''}{' '}
+          <Text style={styles.rocio}> $ {finalEarningsValueToday}</Text>
+        </Text>
       </Box>
     </Box>
   );
 };
 
 const styles = StyleSheet.create({
-  tit: {
-    fontSize: 35,
-    fontFamily: 'HandyQuomteRegular-6YLLo',
-    color: '#700000',
-    marginBottom: 35,
-  },
+  // tit: {
+  //   fontSize: 35,
+  //   fontFamily: 'HandyQuomteRegular-6YLLo',
+  //   color: '#700000',
+  //   marginBottom: 35,
+  // },
   sub: {
     fontSize: 28,
     marginLeft: 10,
     color: 'black',
     fontFamily: 'HandyQuomteRegular-6YLLo',
   },
+  rocio: {fontSize: 25, color: '#700000', fontFamily: 'lato'},
 });
 
 export default Earnings;
