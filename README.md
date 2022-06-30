@@ -2,7 +2,7 @@
 # Mobile Application
 
 - Appointment manager for a nails services store 💅
-- I added some other features, like the possibility to add pictures and know how much money you earned today and this week for your job
+- I added some other features, like the possibility to add pictures and possibility to know how much money you have earned today, this week and this month for the whole job done
 
 
 -  This App is in Spanish language
