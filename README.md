@@ -1,8 +1,8 @@
 # Agenda-Turnos-React Native CLI
 # Mobile Application
 
-- Appointment manager for a nails services store 💅
-- I added some other features, like the possibility to add pictures to a photo album, and also the possibility to know how much money you have earned today, this week and this month for the whole job done
+- Appointment manager for a nails services store 💅 (you can edite and delete appointments)
+- I added some other features, like the possibility to add (and delete) pictures to a photo album, and also the possibility to know how much money you have earned today, this week, and this month, for the whole job done
 
 
 -  This App is in Spanish language
